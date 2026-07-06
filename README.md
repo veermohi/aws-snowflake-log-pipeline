@@ -102,24 +102,3 @@ streamlit run dashboard/app.py
 
 ![Top endpoints table](screenshots/screenshot_top_endpoints_table.png)
 
-## Cost / cleanup notes
-- The warehouse auto-suspends after 60s idle and is `XSMALL`, so cost
-  should stay negligible for a demo.
-- Suspend the task when you're done: `ALTER TASK ... SUSPEND;`
-- Remember to delete the S3 bucket and IAM role/policies if you don't
-  want them lingering in your AWS account.
-
-## Suggested resume bullet
-
-> Built an event-driven log analytics pipeline using AWS S3, IAM, and
-> Snowflake (Snowpipe, Streams, Tasks) to auto-ingest and incrementally
-> transform streaming JSON log data into query-ready aggregates,
-> visualized in a Streamlit dashboard.
-
-## Possible extensions (if you want to keep going later)
-- Swap the local generator for a Lambda function triggered on a
-  schedule, so the whole thing runs without your laptop.
-- Add `dbt` on top of `LOGS_CLEAN` instead of raw SQL views.
-- Add data quality checks (e.g. `NOT NULL`, valid status code ranges)
-  as a Snowflake Task or a `dbt test`.
-- Partition/cluster `LOGS_CLEAN` by date once volume grows.
