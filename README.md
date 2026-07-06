@@ -39,8 +39,6 @@ Python log generator (faker)
 - **Streams + Tasks** for incremental processing instead of full
   reloads — a core SnowPro Core concept, and something interviewers
   like to probe on.
-- Small enough to build in a weekend, but touches enough of the AWS +
-  Snowflake surface area to talk about confidently in an interview.
 
 ## Setup
 
@@ -83,7 +81,7 @@ SELECT COUNT(*) FROM LOG_PIPELINE_DB.ANALYTICS.LOGS_CLEAN;
 SELECT * FROM LOG_PIPELINE_DB.ANALYTICS.TRAFFIC_PER_MINUTE LIMIT 10;
 ```
 
-### 4. (Optional) Dashboard
+### 4. Dashboard
 ```bash
 pip install streamlit snowflake-connector-python pandas
 export SNOWFLAKE_ACCOUNT=xxxxx
