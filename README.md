@@ -37,8 +37,7 @@ Python log generator (faker)
 - **Least-privilege IAM** — the generator can only `PutObject`,
   Snowflake can only read; nothing has blanket bucket access.
 - **Streams + Tasks** for incremental processing instead of full
-  reloads — a core SnowPro Core concept, and something interviewers
-  like to probe on.
+  reloads — a core SnowPro Core concept.
 
 ## Setup
 
