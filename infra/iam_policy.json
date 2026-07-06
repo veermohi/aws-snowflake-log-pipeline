@@ -1,0 +1,36 @@
+{
+  "_comment": "Attach this to an IAM user or role dedicated to the log-pipeline project. Replace YOUR_BUCKET_NAME. This is intentionally scoped to only this bucket and only the actions the generator + Snowflake need.",
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowGeneratorUploads",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/raw/*"
+    },
+    {
+      "Sid": "AllowSnowflakeReadAndList",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/raw/*"
+    },
+    {
+      "Sid": "AllowListBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME",
+      "Condition": {
+        "StringLike": {
+          "s3:prefix": ["raw/*"]
+        }
+      }
+    }
+  ]
+}
