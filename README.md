@@ -83,9 +83,9 @@ SELECT * FROM LOG_PIPELINE_DB.ANALYTICS.TRAFFIC_PER_MINUTE LIMIT 10;
 ### 4. Dashboard
 ```bash
 pip install streamlit snowflake-connector-python pandas
-export SNOWFLAKE_ACCOUNT=xxxxx
-export SNOWFLAKE_USER=xxxxx
-export SNOWFLAKE_PASSWORD=xxxxx
+SET SNOWFLAKE_ACCOUNT=xxxxx
+SET SNOWFLAKE_USER=xxxxx
+SET SNOWFLAKE_PASSWORD=xxxxx
 streamlit run dashboard/app.py
 ```
 
@@ -93,9 +93,12 @@ streamlit run dashboard/app.py
 
 **Overview — traffic, error rate, top endpoints, and latency:**
 
-![Dashboard overview](screenshots/screenshot_dashboard_overview.png)
+![Dashboard overview](screenshots/realtime_logs.png)
 
 **Top endpoints detail table:**
 
-![Top endpoints table](screenshots/screenshot_top_endpoints_table.png)
+![Top endpoints table](screenshots/top_endpoints.png)
 
+**P95 latency**
+
+![P95 latency](screenshots/p95.png)
